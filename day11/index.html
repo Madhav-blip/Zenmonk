@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio with DOM manipulation</title>
+</head>
+<body>
+  <div id="app"> </div>
+  <script>
+    
+    const heading = document.createElement("h1");
+    const container=document.createElement("div");
+
+    const mode=document.createElement("button");
+    mode.textContent="🌗Light/Dark Mode";
+    container.appendChild(mode);
+
+
+    mode.addEventListener("click",() => {
+    document.body.classList.toggle("dark");
+    });
+
+    const style = document.createElement("style");
+
+style.textContent = `
+.dark{
+  background-color:black;
+  color:white;
+}
+`;
+
+document.head.appendChild(style);
+
+heading.textContent = "Madhav Prakash";
+heading.style.color="red";
+container.style.display="flex";
+container.style.justifyContent="center";
+container.appendChild(heading);
+
+container.style.flexDirection = "column";
+container.style.alignItems = "center";
+
+const title=document.createElement("h3");
+title.textContent="Aspiring Software Engineer | Training Program @ Zenmonk | NMIMS 3rd Year | Computer Engineering";
+container.appendChild(title);
+
+const details=document.createElement("marquee");
+details.textContent = "Gmail: madhavprakash06@gmail.com | Github: github.com/Madhav-blip |  Mobile Number: +91 - 896 88 66 554";
+details.style.color="blue"
+container.appendChild(details);
+document.body.appendChild(container);
+
+const maincontainer=document.createElement("div");
+const heading1=document.createElement("h2");
+heading1.textContent="Technical Skills";
+maincontainer.appendChild(heading1);
+heading1.style.color="purple";
+
+const skills=["HTML","CSS","JavaScript","Tailwind","AngularJS","Java","Python"];
+const ul=document.createElement("ul");
+skills.forEach(skills => {
+  const li=document.createElement("li");
+  li.textContent=skills;
+  ul.appendChild(li);
+});
+ maincontainer.appendChild(ul);
+document.body.appendChild(maincontainer);
+
+const project=document.createElement("h2");
+project.textContent="Projects Created";
+maincontainer.appendChild(project);
+project.style.color="purple";
+
+const pros=["Built an AI enhanced Habit and Expense Tracker using Python","Built a Electrostatic Precipitator by 3D printing all the components required and using Arduino","Built a NMIMS Alumni Management System using HTML,CSS,JS and MySQL for Database","Created a web-based Smart Cafeteria System to digitize food ordering and enhance the user dining experience."];
+const ul1=document.createElement("ul");
+pros.forEach(pros => {
+  const li=document.createElement("li");
+  li.textContent=pros;
+  ul1.appendChild(li);
+});
+ maincontainer.appendChild(ul1);
+
+document.body.appendChild(maincontainer);
+
+const footer = document.createElement("div");
+
+footer.style.display = "flex";
+footer.style.flexDirection = "column";
+footer.style.alignItems = "center";
+footer.style.marginTop = "30px";
+
+const head = document.createElement("h2");
+head.textContent = "Contact Madhav Here!";
+footer.appendChild(head);
+const form = document.createElement("form");
+
+form.style.display = "flex";
+form.style.flexDirection = "column";
+form.style.gap = "10px";
+
+const name = document.createElement("input");
+name.type = "text";
+name.placeholder = "Enter your name";
+
+const age = document.createElement("input");
+age.type = "number";
+age.placeholder = "Enter your age";
+
+const text = document.createElement("textarea");
+text.placeholder = "Enter reason of contact";
+
+
+const submit = document.createElement("button");
+submit.type = "submit";
+submit.textContent = "Submit";
+
+form.appendChild(name);
+form.appendChild(age);
+form.appendChild(text);
+form.appendChild(submit);
+
+footer.appendChild(form);
+
+document.body.appendChild(footer);
+
+
+
+  </script>
+</body>
+</html>

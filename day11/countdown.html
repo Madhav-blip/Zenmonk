@@ -1,0 +1,106 @@
+<!-- const obj={
+  name:"madhav",
+  age:19
+}
+converting obj into json string
+
+const jsonData=JSON.stringify(obj);
+
+converting jsondata to obj:
+const data=JSON.parse(jsonData);
+
+# Concept of local storage
+localStorage.setItem("username", "Madhav");   --- Save the item
+
+const name = localStorage.getItem("username");   --- get the item from storage
+console.log(name);
+
+localStorage.removeItem("username");  (for clear use .clear())
+
+
+in case of storing objects:
+localStorage.setItem("object",JSON.stringify(obj));
+const userData = JSON.parse(localStorage.getItem("user"));
+console.log(userData.name);
+
+
+const myPromise = new Promise((resolve, reject) => {
+
+resolve("Promise completed");
+reject("Promise not completed");
+
+});
+
+myPromise.then(result , => {
+console.log(result);
+})
+.catch(error => {
+      console.log(error);
+});
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+</body>
+<script>
+  const container=document.createElement("div");
+  const heading=document.createElement("h1");
+  const timer=document.createElement("h2");
+  const button=document.createElement("button");
+
+  heading.textContent="COUNTDOWN TIMER!";
+  heading.style.color="red";
+
+  
+
+  button.textContent="Start timer";
+
+  container.appendChild(heading);
+  container.appendChild(timer);
+  container.appendChild(button);
+  document.body.appendChild(container);
+
+  let time=10;
+  timer.textContent=time;
+  button.addEventListener("click",() =>{
+    const interval=setInterval(()=>{
+      time--;
+      timer.textContent=time;
+
+       if(time <= 0){
+        timerPromise();
+          clearInterval(interval);
+          timerPromise()
+  .then((msg)=>{
+      timer.textContent = msg;
+  })
+  .catch((err)=>{
+      timer.textContent = err;
+  });
+        }
+
+  },1000);
+  });
+function timerPromise(){
+  const success=true;
+    return new Promise((resolve,reject)=>{
+      if(success===true){
+      resolve("Countdown Timer completed!!");
+      }
+      else{
+        reject("Countdown timer not completed");
+      }
+      
+    });
+}
+
+</script>
+</html>
