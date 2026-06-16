@@ -1,0 +1,15 @@
+body{
+  background-color: black;
+  color:hsla(51, 100%, 50%, 0.902);
+}
+#navcontainer{
+  margin-left: 90px;
+}
+#body{
+  margin-left:90px;
+  margin-top:40px;
+  background-color: rgb(21, 1, 1);
+}
+button{
+  background-color:hsla(51, 100%, 50%, 0.902);
+}
