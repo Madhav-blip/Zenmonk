@@ -1,15 +1,31 @@
 body{
   background-color: black;
-  color:hsla(51, 100%, 50%, 0.902);
+  color:white;
+  font-size: 25px;
 }
 #navcontainer{
   margin-left: 90px;
+  color:hsla(51, 100%, 50%, 0.902);
 }
 #body{
   margin-left:90px;
   margin-top:40px;
   background-color: rgb(21, 1, 1);
 }
-button{
-  background-color:hsla(51, 100%, 50%, 0.902);
+#info{
+  display:flex;
+  justify-content: space-between;
+}
+#val{
+  height:40px;
+  width: 40px;;
+  border-radius: 100%;
+}
+#Center_section{
+  display:flex;
+  justify-content: space-between;
+}
+#forecast{
+  display:flex;
+  justify-content: space-between;
 }

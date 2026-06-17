@@ -13,24 +13,103 @@
   <div id="body">
   <div id="search">
     <input type="text" placeholder="Enter your Place ">
-    <button type="submit">🔍</button>
+    <button id="search" type="submit">🔍</button>
   </div>
   <div id="recent">
     <p>🕒Recent Searches</p>
-    <!-- Recent search from local Storage here -->
+    <p id="recent"></p>
   </div>
-
-
-
-
-
-
-
+  <div id="info">
+    <div>
+      <h3>🏙️Name of state</h3>
+      <h5>Date and Day</h5>
+    </div>
+    <button id="val">^c</button>
+  </div>
+  <div id="Center_section">
+    <div>
+      <h2 id="temp">Temp</h2>
+      <h5 id="desc">Description of day</h5>
+    </div>
+    <h4>Humidity</h4>
+    <div class="humidity">
+      
+      Humidity
+    </div>
+    <h4>Wind speed</h4>
+    <div class="wind">
+      Wind
+    </div>
+    
+  </div>
+  <!-- <h4>5-Day Forecast</h4>
+  <div id="forecast">
+    <div id="fore1">Forecast-1</div>
+    <div id="fore2">Forecast-2</div>
+    <div id="fore3">Forecast-3</div>
+    <div id="fore4">Forecast-4</div>
+    <div id="fore5">Forecast-5</div>
+  </div> -->
 
 
   </div>
 </body>
 <script>
-  
+const search=document.querySelector("input");
+const button=document.querySelector("button");
+const name=document.querySelector("h3");
+const date=document.querySelector("h5");
+const temperature=document.getElementById("temp");
+const description=document.getElementById("desc");
+const humidity=document.querySelector(".humidity");
+const wind=document.querySelector(".wind");
+const history=document.getElementById("recent");
+
+// const forecast1=document.getElementById("fore1");
+// const forecast2=document.getElementById("fore2");
+// const forecast3=document.getElementById("fore3");
+// const forecast4=document.getElementById("fore4");
+// const forecast5=document.getElementById("fore5");
+
+const api = "b89781810490c1b6413fb8f7e938a881";
+
+
+button.addEventListener("click",()=>{
+  const city = search.value.trim();
+  console.log(search.value);
+  if(search.value.trim()===""){
+    alert("Enter valid city name!");
+    return;
+  }
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=metric`;
+  const today = new Date();
+
+
+  let p=fetch(url);
+  p.then((value)=>{
+    return value.json();
+  }).then((value)=>{
+    console.log(value);
+    
+name.textContent=value.name;
+temperature.textContent=value.main.temp;
+humidity.textContent=value.main.humidity;
+wind.textContent=value.wind.speed;
+description.textContent=value.weather[0].description;
+date.textContent=today.toDateString();
+
+localStorage.setItem("City", city);
+
+const saved = localStorage.getItem("City");
+
+history.innerHTML = `
+<p>🕒 Recent Searches</p>
+<p>${saved}</p>
+`;
+  });
+});
+search=localStorage.setItem(city1,input.value);
+search.textContent=localStorage.getItem(city1);
+
 </script>
 </html>
