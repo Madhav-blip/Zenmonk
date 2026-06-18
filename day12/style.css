@@ -10,7 +10,7 @@ body{
 #body{
   margin-left:90px;
   margin-top:40px;
-  background-color: rgb(21, 1, 1);
+  background-color: #CA8A04;
 }
 #info{
   display:flex;
@@ -28,4 +28,14 @@ body{
 #forecast{
   display:flex;
   justify-content: space-between;
+}
+#Center_section{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;   /* Add this */
+}
+
+.humidity,
+.wind{
+  text-align: center;
 }
